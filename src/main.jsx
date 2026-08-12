@@ -4,7 +4,7 @@ import "./index.css";
 import AppLay from "./Applayout/Applay.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
-const Home = lazy(() => import("./pages/Home.jsx"));
+const Homes = lazy(() => import("./pages/Home.jsx"));
 const Service = lazy(() => import("./Pages/Service.jsx"));
 const Clinics = lazy(() => import("./Pages/Clinics.jsx"));
 const Therapists = lazy(() => import("./Pages/Therapists.jsx"));
@@ -19,7 +19,7 @@ const Root = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <Homes />,
       },
       {
         path: "/services",
