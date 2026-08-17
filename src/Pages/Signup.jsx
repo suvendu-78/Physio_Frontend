@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-
+import Logo from "./logo.jsx";
 const Signup = () => {
   const firstNameRef = useRef();
   const lastNameRef = useRef();
@@ -47,20 +47,14 @@ const Signup = () => {
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-teal-100 overflow-hidden">
         {/* Header Section */}
         <div className="bg-[#2c696e] px-8 py-6 text-center text-white">
-          <div className="inline-flex items-center gap-2 mb-2">
-            <div className="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center text-[#2c696e] font-bold text-lg">
-              P
-            </div>
-            <span className="text-xl font-semibold tracking-wide">
-              PhysioNet
-            </span>
+          <div className="flex justify-center mb-3">
+            <Logo />
           </div>
           <h1 className="text-2xl font-bold">Create Account</h1>
           <p className="text-xs text-teal-100 mt-1">
             Join PhysioNet to book and manage healthcare services
           </p>
         </div>
-
         <form onSubmit={handleSubmit} className="p-6 space-y-3.5">
           <div>
             <label className="block text-xs font-semibold text-gray-700 mb-1">

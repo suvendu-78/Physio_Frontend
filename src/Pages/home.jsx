@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Search,
   ChevronLeft,
@@ -8,6 +8,12 @@ import {
   Building2,
   Stethoscope,
   ChevronDown,
+  Star,
+  Activity,
+  Brain,
+  Sparkles,
+  Hand,
+  UserCheck,
 } from "lucide-react";
 
 const SLIDES = [
@@ -74,6 +80,109 @@ const Homes = () => {
     }, 5000);
     return () => clearInterval(timer);
   }, [index]);
+  const reviewsContainerRef = useRef(null);
+
+  // Sample Data
+  const doctors = [
+    {
+      id: 1,
+      name: "Dr. Namara Names",
+      rating: 4.8,
+      specialization: "Specialization",
+      image:
+        "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&auto=format&fit=crop&q=80",
+    },
+    {
+      id: 2,
+      name: "Dr. Namara Sannan",
+      rating: 4.8,
+      specialization: "Specialization",
+      image:
+        "https://images.unsplash.com/photo-1594824813566-78a93a1a9e70?w=400&auto=format&fit=crop&q=80",
+    },
+    {
+      id: 3,
+      name: "Dr. Name Naman",
+      rating: 4.8,
+      specialization: "Specialization",
+      image:
+        "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&auto=format&fit=crop&q=80",
+    },
+    {
+      id: 4,
+      name: "Dr. Namarar Ranam",
+      rating: 4.8,
+      specialization: "Specialization",
+      image:
+        "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&auto=format&fit=crop&q=80",
+    },
+  ];
+
+  const clinics = [
+    {
+      id: 1,
+      title: "Top Clinics",
+      subtitle: "Physiotherapist",
+      rating: 4.8,
+      image:
+        "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=300&auto=format&fit=crop&q=80",
+    },
+    {
+      id: 2,
+      title: "Top Clinics",
+      subtitle: "Physiotherapist",
+      rating: 4.8,
+      image:
+        "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=300&auto=format&fit=crop&q=80",
+    },
+  ];
+
+  const services = [
+    { id: 1, title: "Orthopedic", icon: Activity },
+    { id: 2, title: "Neurological", icon: Brain },
+    { id: 3, title: "Pediatrics", icon: Sparkles },
+    { id: 4, title: "Physiotherapy", icon: Hand },
+    { id: 5, title: "E-Therapy", icon: Stethoscope },
+    { id: 6, title: "Therapy", icon: UserCheck },
+  ];
+
+  const reviews = [
+    {
+      id: 1,
+      name: "Rowara Name",
+      description: "Physiotherapy Physiotherapist for across Odisha.",
+      rating: 4.8,
+      image:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80",
+    },
+    {
+      id: 2,
+      name: "Konra Rahor",
+      description: "Physiotherapy Physiotherapist for across Odisha.",
+      rating: 4.8,
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    },
+    {
+      id: 3,
+      name: "Asanna Bheshi",
+      description: "Physiotherapy Physiotherapist for across Odisha.",
+      rating: 4.8,
+      image:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+    },
+  ];
+
+  // Horizontal Scroll Handler for mobile/tablet review carousel
+  const scrollReviews = (direction) => {
+    if (reviewsContainerRef.current) {
+      const scrollAmount = direction === "left" ? -300 : 300;
+      reviewsContainerRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <div className="w-full font-sans">
@@ -332,6 +441,197 @@ const Homes = () => {
           </div>
         </div>
       </section>
+
+      <div className="bg-[#edf7f6] text-gray-800 p-3 sm:p-6 lg:p-8 min-h-screen font-sans selection:bg-teal-100">
+        <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10">
+          {/* ================= TOP SECTION ================= */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Featured Physiotherapists */}
+            <div className="lg:col-span-2">
+              <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-900">
+                Featured Physiotherapists
+              </h2>
+
+              {/* 2 Columns on Mobile, 4 Columns on Desktop */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
+                {doctors.map((doc) => (
+                  <a
+                    key={doc.id}
+                    href={`#doctor-${doc.id}`}
+                    className="bg-white rounded-2xl p-2.5 sm:p-3 shadow-xs hover:shadow-md transition-all duration-200 border border-transparent hover:border-teal-300 flex flex-col group"
+                  >
+                    <div className="relative rounded-xl overflow-hidden mb-2.5 aspect-4/3 sm:aspect-square">
+                      <img
+                        src={doc.image}
+                        alt={doc.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      <span className="absolute bottom-1.5 right-1.5 sm:bottom-2 sm:right-2 bg-teal-600/90 text-white text-[10px] sm:text-xs font-semibold px-1.5 py-0.5 rounded-md flex items-center gap-0.5">
+                        {doc.rating}{" "}
+                        <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-current" />
+                      </span>
+                    </div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-teal-600 transition-colors text-xs sm:text-sm truncate">
+                      {doc.name}
+                    </h3>
+                    <div className="flex items-center text-[11px] sm:text-xs text-amber-500 my-0.5 sm:my-1 font-semibold">
+                      {doc.rating}{" "}
+                      <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-current ml-0.5" />
+                    </div>
+                    <p className="text-[11px] sm:text-xs text-gray-500 font-medium truncate">
+                      {doc.specialization}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Top Clinics */}
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-900">
+                Top Clinics
+              </h2>
+
+              {/* Grid layout on Mobile/Tablet, Stacked on Desktop */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
+                {clinics.map((clinic) => (
+                  <a
+                    key={clinic.id}
+                    href={`#clinic-${clinic.id}`}
+                    className="bg-white rounded-2xl p-3 flex items-center gap-3 sm:gap-4 shadow-xs hover:shadow-md transition-all duration-200 border border-transparent hover:border-teal-300 group"
+                  >
+                    <img
+                      src={clinic.image}
+                      alt={clinic.title}
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover shrink-0"
+                      loading="lazy"
+                    />
+                    <div className="min-w-0">
+                      <h3 className="font-bold text-gray-900 group-hover:text-teal-600 transition-colors text-sm sm:text-base truncate">
+                        {clinic.title}
+                      </h3>
+                      <p className="text-xs text-gray-500 font-medium truncate">
+                        {clinic.subtitle}
+                      </p>
+                      <div className="flex items-center text-xs text-amber-500 mt-1 font-semibold">
+                        {clinic.rating}{" "}
+                        <Star className="w-3 h-3 fill-current ml-1" />
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* ================= EXPLORE SERVICES ================= */}
+          <div>
+            <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-900">
+              Explore Services
+            </h2>
+
+            {/* Responsive Grid: 3 columns on Mobile, 6 on Large Screens */}
+            <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-2.5 sm:gap-4">
+              {services.map((service) => {
+                const IconComponent = service.icon;
+                return (
+                  <a
+                    key={service.id}
+                    href={`#service-${service.id}`}
+                    className="bg-white rounded-2xl p-3 sm:p-5 text-center shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col items-center justify-center group border border-transparent hover:border-teal-300"
+                  >
+                    <div className="w-10 h-10 sm:w-14 sm:h-14 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center mb-2 sm:mb-3 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                      <IconComponent className="w-5 h-5 sm:w-7 sm:h-7" />
+                    </div>
+                    <span className="font-bold text-xs sm:text-sm text-gray-800 group-hover:text-teal-600 truncate max-w-full">
+                      {service.title}
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* ================= RECENT PATIENT REVIEWS ================= */}
+          <div>
+            <div className="flex justify-between items-center mb-3 sm:mb-4">
+              <h2 className="text-lg sm:text-xl font-bold text-gray-900">
+                Recent Patient Reviews
+              </h2>
+              <button className="text-teal-600 hover:text-teal-700 font-semibold text-xs sm:text-sm cursor-pointer">
+                View All
+              </button>
+            </div>
+
+            <div className="relative group">
+              {/* Prev Button */}
+              <button
+                onClick={() => scrollReviews("left")}
+                aria-label="Previous review"
+                className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white text-gray-600 rounded-full shadow-md hover:bg-teal-600 hover:text-white transition-all items-center justify-center cursor-pointer"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+
+              {/* Responsive Container: Touch Scroll on Mobile, Grid on Desktop */}
+              <div
+                ref={reviewsContainerRef}
+                className="flex md:grid md:grid-cols-3 gap-3 sm:gap-4 overflow-x-auto md:overflow-visible pb-2 md:pb-0 scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+              >
+                {reviews.map((rev) => (
+                  <div
+                    key={rev.id}
+                    className="bg-white rounded-2xl p-3.5 sm:p-4 shadow-xs hover:shadow-md transition-shadow flex items-start gap-3 min-w-[85%] sm:min-w-[60%] md:min-w-full snap-center shrink-0"
+                  >
+                    <img
+                      src={rev.image}
+                      alt={rev.name}
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover shrink-0"
+                      loading="lazy"
+                    />
+                    <div className="min-w-0">
+                      <h3 className="font-bold text-gray-900 text-xs sm:text-sm truncate">
+                        {rev.name}
+                      </h3>
+                      <p className="text-[11px] sm:text-xs text-gray-500 font-medium leading-tight my-1 line-clamp-2">
+                        {rev.description}
+                      </p>
+                      <div className="flex items-center text-[11px] sm:text-xs text-amber-500 font-semibold mt-1">
+                        <div className="flex gap-0.5 mr-1.5">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-current"
+                            />
+                          ))}
+                        </div>
+                        {rev.rating}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Next Button */}
+              <button
+                onClick={() => scrollReviews("right")}
+                aria-label="Next review"
+                className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white text-gray-600 rounded-full shadow-md hover:bg-teal-600 hover:text-white transition-all items-center justify-center cursor-pointer"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Carousel Indicators */}
+            <div className="flex justify-center items-center gap-1.5 mt-4 sm:mt-6">
+              <span className="w-5 sm:w-6 h-1.5 sm:h-2 bg-teal-600 rounded-full"></span>
+              <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-teal-200 rounded-full"></span>
+              <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-teal-200 rounded-full"></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
