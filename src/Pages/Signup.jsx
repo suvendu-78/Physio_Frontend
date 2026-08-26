@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import Logo from "./logo.jsx";
+import Swal from "sweetalert2";
 const Signup = () => {
   const firstNameRef = useRef();
   const lastNameRef = useRef();
@@ -12,7 +13,7 @@ const Signup = () => {
   const [info, setInfo] = useState(null);
   const [passwordError, setPasswordError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const password = passwordRef.current.value;
 
@@ -30,15 +31,39 @@ const Signup = () => {
     setPasswordError(""); // Clear error if valid
 
     const data = {
-      userType: role,
-      firstName: firstNameRef.current.value,
-      lastName: lastNameRef.current.value,
-      email: emailRef.current.value,
-      phone: phoneRef.current.value,
-      address: addressRef.current.value,
-      password: password,
+      FName: firstNameRef.current.value,
+      LName: lastNameRef.current.value,
+      Role: role,
+      Email: emailRef.current.value,
+      Password: passwordRef.current.value,
+      Mobile: phoneRef.current.value,
+      Address: addressRef.current.value,
     };
     setInfo(data);
+    const Response = await fetch("http://localhost:8000/api/v1/user/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (Response.ok) {
+      firstNameRef.current.value = "";
+      lastNameRef.current.value = "";
+      emailRef.current.value = "";
+      passwordRef.current.value = "";
+      phoneRef.current.value = "";
+      addressRef.current.value = "";
+
+      Swal.fire({
+        icon: "success",
+        title: "Signup Successful!",
+        text: "Your account has been created successfully.",
+        confirmButtonText: "Continue",
+        confirmButtonColor: "#4f46e5",
+      });
+    }
+
     console.log(data);
   };
 

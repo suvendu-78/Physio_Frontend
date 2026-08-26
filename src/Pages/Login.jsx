@@ -6,7 +6,7 @@ const Login = () => {
   const passwordRef = useRef();
   const [data, setData] = useState(null);
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const info = {
       email: emailRef.current.value,
@@ -14,6 +14,13 @@ const Login = () => {
     };
     setData(info);
     console.log(info);
+    const response = await fetch("", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(info),
+    });
   };
 
   return (
