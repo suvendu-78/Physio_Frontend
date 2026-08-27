@@ -11,6 +11,8 @@ const Therapists = lazy(() => import("./Pages/Therapists.jsx"));
 const Login = lazy(() => import("./Pages/Login.jsx"));
 const Signup = lazy(() => import("./Pages/Signup.jsx"));
 const About = lazy(() => import("./Pages/About.jsx"));
+const BookingPage = lazy(() => import("./Pages/bookingpage.jsx"));
+const ClinicDetail = lazy(() => import("./Pages/clinicInfo.jsx"));
 
 const Root = createBrowserRouter([
   {
@@ -44,6 +46,14 @@ const Root = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/bookingpage",
+        element: <BookingPage />,
+      },
+      {
+        path: "/clinicDetail",
+        element: <ClinicDetail />,
       },
     ],
   },

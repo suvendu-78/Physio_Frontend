@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import Logo from "./logo.jsx";
+import Swal from "sweetalert2";
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -9,18 +10,30 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const info = {
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
+      Email: emailRef.current.value,
+      Password: passwordRef.current.value,
     };
-    setData(info);
-    console.log(info);
-    const response = await fetch("", {
+    const Response = await fetch("http://localhost:8000/api/v1/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(info),
     });
+    setData(info);
+    console.log(info);
+    if (Response.ok) {
+      emailRef.current.value = "";
+      passwordRef.current.value = "";
+
+      Swal.fire({
+        icon: "success",
+        title: "Login Successful!",
+        text: "Welcome to LiBi motion care.",
+        confirmButtonText: "Continue",
+        confirmButtonColor: "#4f46e5",
+      });
+    }
   };
 
   return (

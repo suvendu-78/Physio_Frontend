@@ -15,7 +15,7 @@ import {
   CheckCircle2,
   Filter,
 } from "lucide-react";
-
+import { NavLink } from "react-router-dom";
 // Master Service Data mapped to Blueprint
 const SERVICES_DATA = [
   {
@@ -284,10 +284,12 @@ const Service = () => {
                 </div>
 
                 {/* Booking Button */}
-                <button className="w-full mt-2 flex items-center justify-center gap-2 bg-[#0a4f48] hover:bg-[#063b36] text-white font-semibold text-sm py-3 rounded-xl shadow-md transition-all active:scale-[0.98]">
-                  <span>Book {service.category}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                <NavLink to="/bookingpage">
+                  <button className="w-full mt-2 flex items-center justify-center gap-2 bg-[#0a4f48] hover:bg-[#063b36] text-white font-semibold text-sm py-3 rounded-xl shadow-md transition-all active:scale-[0.98]">
+                    <span>Book {service.category}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </NavLink>
               </div>
             );
           })}
