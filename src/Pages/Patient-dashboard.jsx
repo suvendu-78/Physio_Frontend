@@ -16,7 +16,20 @@ import {
 
 const PatientDashboard = () => {
   const [activeTab, setActiveTab] = useState("appointments");
+  const [info, setInfo] = useState({});
+  const Data = async () => {
+    const Response = await fetch("http://localhost:8000/api/v1/user/getuser", {
+      method: "GET",
+    });
 
+    const data1 = await Response.json();
+
+    console.log("RESPONSE:", data1);
+
+    setInfo(data1.data);
+  };
+  Data();
+  console.log(info);
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
       {/* TOP USER BANNER */}

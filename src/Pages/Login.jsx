@@ -18,6 +18,7 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
       },
+
       body: JSON.stringify(info),
     });
     setData(info);
@@ -33,6 +34,9 @@ const Login = () => {
         confirmButtonText: "Continue",
         confirmButtonColor: "#4f46e5",
       });
+      setTimeout(() => {
+        navigate("/patientDashboard");
+      }, [2000]);
     }
   };
 
