@@ -7,39 +7,97 @@ const Login = () => {
   const passwordRef = useRef();
   const [data, setData] = useState(null);
   const navigate = useNavigate();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const info = {
+  //     Email: emailRef.current.value,
+  //     Password: passwordRef.current.value,
+  //   };
+  //   const Response = await fetch("http://localhost:8000/api/v1/user/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+
+  //     body: JSON.stringify(info),
+  //   });
+  //   setData(info);
+  //   console.log(info);
+  //   if (Response.ok) {
+  //     emailRef.current.value = "";
+  //     passwordRef.current.value = "";
+
+  //     Swal.fire({
+  //       icon: "success",
+  //       title: "Login Successful!",
+  //       text: "Welcome to LiBi motion care.",
+  //       confirmButtonText: "Continue",
+  //       confirmButtonColor: "#4f46e5",
+  //     });
+  //     setTimeout(() => {
+  //       navigate("/patientDashboard");
+  //     }, [2000]);
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const info = {
       Email: emailRef.current.value,
       Password: passwordRef.current.value,
     };
-    const Response = await fetch("http://localhost:8000/api/v1/user/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
 
-      body: JSON.stringify(info),
-    });
-    setData(info);
-    console.log(info);
-    if (Response.ok) {
-      emailRef.current.value = "";
-      passwordRef.current.value = "";
+    try {
+      const Response = await fetch("http://localhost:8000/api/v1/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        // Important for HttpOnly cookies
+        credentials: "include",
+
+        body: JSON.stringify(info),
+      });
+
+      const result = await Response.json();
+
+      console.log("LOGIN RESPONSE:", result);
+
+      if (Response.ok) {
+        emailRef.current.value = "";
+        passwordRef.current.value = "";
+
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful!",
+          text: "Welcome to LiBi motion care.",
+          confirmButtonText: "Continue",
+          confirmButtonColor: "#4f46e5",
+        });
+
+        setTimeout(() => {
+          navigate("/patientDashboard");
+        }, 2000);
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Login Failed",
+          text: result.message || "Invalid email or password",
+          confirmButtonColor: "#ef4444",
+        });
+      }
+    } catch (error) {
+      console.log("LOGIN ERROR:", error);
 
       Swal.fire({
-        icon: "success",
-        title: "Login Successful!",
-        text: "Welcome to LiBi motion care.",
-        confirmButtonText: "Continue",
-        confirmButtonColor: "#4f46e5",
+        icon: "error",
+        title: "Something went wrong",
+        text: "Unable to connect to the server.",
+        confirmButtonColor: "#ef4444",
       });
-      setTimeout(() => {
-        navigate("/patientDashboard");
-      }, [2000]);
     }
   };
-
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-teal-100 overflow-hidden">
