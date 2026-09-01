@@ -1,7 +1,9 @@
 import { useState, useRef } from "react";
 import Logo from "./logo.jsx";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 const Signup = () => {
+  const navigate = useNavigate();
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const emailRef = useRef();
@@ -61,6 +63,10 @@ const Signup = () => {
         text: "Your account has been created successfully.",
         confirmButtonText: "Continue",
         confirmButtonColor: "#4f46e5",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
       });
     }
 

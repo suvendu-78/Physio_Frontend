@@ -74,11 +74,11 @@ const Login = () => {
           text: "Welcome to LiBi motion care.",
           confirmButtonText: "Continue",
           confirmButtonColor: "#4f46e5",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/patientDashboard");
+          }
         });
-
-        setTimeout(() => {
-          navigate("/patientDashboard");
-        }, 2000);
       } else {
         Swal.fire({
           icon: "error",
