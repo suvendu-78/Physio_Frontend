@@ -14,6 +14,7 @@ const About = lazy(() => import("./Pages/About.jsx"));
 const BookingPage = lazy(() => import("./Pages/bookingpage.jsx"));
 const ClinicDetail = lazy(() => import("./Pages/clinicInfo.jsx"));
 const PatientDashboard = lazy(() => import("./Pages/Patient-dashboard.jsx"));
+const ForgetPassword = lazy(() => import("./Pages/Fogetpassword.jsx"));
 
 const Root = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const Root = createBrowserRouter([
       {
         path: "/patientDashboard",
         element: <PatientDashboard />,
+      },
+      {
+        path: "/forgetPassword",
+        element: <ForgetPassword />,
       },
     ],
   },

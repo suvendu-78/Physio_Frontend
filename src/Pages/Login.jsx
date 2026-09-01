@@ -134,12 +134,12 @@ const Login = () => {
               <label className="block text-sm font-medium text-gray-700">
                 Password
               </label>
-              <a
-                href="#forgot"
+              <NavLink
+                to="/forgetPassword"
                 className="text-xs font-semibold text-[#2c696e] hover:underline"
               >
                 Forgot?
-              </a>
+              </NavLink>
             </div>
             <input
               type="password"
