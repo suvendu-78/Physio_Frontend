@@ -15,6 +15,8 @@ const BookingPage = lazy(() => import("./Pages/bookingpage.jsx"));
 const ClinicDetail = lazy(() => import("./Pages/clinicInfo.jsx"));
 const PatientDashboard = lazy(() => import("./Pages/Patient-dashboard.jsx"));
 const ForgetPassword = lazy(() => import("./Pages/Fogetpassword.jsx"));
+const TermsAndConditions = lazy(() => import("./Pages/Term_Condition.jsx"));
+const PrivacyPolicy = lazy(() => import("./Pages/Privacy_Policy.jsx"));
 
 const Root = createBrowserRouter([
   {
@@ -64,6 +66,14 @@ const Root = createBrowserRouter([
       {
         path: "/forgetPassword",
         element: <ForgetPassword />,
+      },
+      {
+        path: "/termsAndConditions",
+        element: <TermsAndConditions />,
+      },
+      {
+        path: "/privacyPolicy",
+        element: <PrivacyPolicy />,
       },
     ],
   },

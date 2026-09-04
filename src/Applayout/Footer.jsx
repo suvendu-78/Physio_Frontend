@@ -134,12 +134,12 @@ const Foot = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/privacy-policy" className={navLinkStyle}>
+              <NavLink to="/privacyPolicy" className={navLinkStyle}>
                 Privacy Policy
               </NavLink>
             </li>
             <li>
-              <NavLink to="/terms" className={navLinkStyle}>
+              <NavLink to="/termsAndConditions" className={navLinkStyle}>
                 Terms of Service
               </NavLink>
             </li>
