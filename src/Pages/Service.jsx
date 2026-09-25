@@ -7,7 +7,6 @@ import {
   Stethoscope,
   UserCheck,
   Heart,
-  Clock,
   ArrowRight,
   Home,
   Building2,
@@ -26,8 +25,6 @@ const SERVICES_DATA = [
       "Comprehensive care for joint pain, fractures, arthritis, and musculoskeletal disorders.",
     fullDesc:
       "Specialized treatment designed to restore function to your joints, muscles, and bones. Includes manual therapy, targeted exercises, and posture correction.",
-    duration: "45–60 mins",
-    startingPrice: "₹500",
     deliveryModes: ["Home Visit", "Clinic Visit"],
     keyBenefits: [
       "Pain Management",
@@ -44,8 +41,6 @@ const SERVICES_DATA = [
       "Rehabilitation for Stroke, Parkinson’s, Paralysis, and Spinal Cord injuries.",
     fullDesc:
       "Focused neuro-rehabilitation helping patients regain motor control, balance, and independence in daily activities through targeted retraining exercises.",
-    duration: "60 mins",
-    startingPrice: "₹700",
     deliveryModes: ["Home Visit", "Clinic Visit"],
     keyBenefits: [
       "Gait & Balance Training",
@@ -62,8 +57,6 @@ const SERVICES_DATA = [
       "Targeted therapy for ligament tears, sprains, muscle strains, and athletic performance.",
     fullDesc:
       "Designed for athletes and active individuals to recover quickly from sports injuries, prevent future re-injury, and enhance physical performance.",
-    duration: "45 mins",
-    startingPrice: "₹600",
     deliveryModes: ["Clinic Visit", "Home Visit"],
     keyBenefits: [
       "Rapid Recovery Protocols",
@@ -80,8 +73,6 @@ const SERVICES_DATA = [
       "Specialized therapy for developmental delays, Cerebral Palsy, and motor skill enhancement.",
     fullDesc:
       "Gentle, play-based physical therapy tailor-made for children to reach their physical milestones, improve balance, and strengthen motor skills.",
-    duration: "45 mins",
-    startingPrice: "₹600",
     deliveryModes: ["Home Visit", "Clinic Visit"],
     keyBenefits: [
       "Developmental Milestone Tracking",
@@ -98,8 +89,6 @@ const SERVICES_DATA = [
       "Structured recovery protocols for ACL reconstruction, Joint Replacements, and Spine Surgeries.",
     fullDesc:
       "Post-operative care focused on safe mobilization, scar tissue management, and restoring full strength after major surgical procedures.",
-    duration: "45–60 mins",
-    startingPrice: "₹650",
     deliveryModes: ["Home Visit", "Clinic Visit"],
     keyBenefits: [
       "Swelling & Stiffness Reduction",
@@ -116,8 +105,6 @@ const SERVICES_DATA = [
       "Virtual guided exercise, posture assessment, and consultation from your home.",
     fullDesc:
       "Convenient online video consultation with expert physiotherapists for preliminary assessments, guided ergonomic advice, and home exercise plans.",
-    duration: "30 mins",
-    startingPrice: "₹350",
     deliveryModes: ["Online Consultation"],
     keyBenefits: [
       "Zero Travel Required",
@@ -134,13 +121,59 @@ const SERVICES_DATA = [
       "Fall prevention, arthritis management, and mobility restoration for senior citizens.",
     fullDesc:
       "Dedicated care tailored for seniors to maintain mobility, reduce joint stiffness, prevent dangerous falls, and enhance overall quality of life.",
-    duration: "45 mins",
-    startingPrice: "₹550",
     deliveryModes: ["Home Visit", "Clinic Visit"],
     keyBenefits: [
       "Fall Prevention Strategies",
       "Gentle Joint Mobilization",
       "Enhanced Daily Mobility",
+    ],
+  },
+  {
+    id: "generic-care",
+    title: "Generic Care",
+    category: "Generic Care",
+    icon: Stethoscope,
+    shortDesc:
+      "Personalized physiotherapy care for general health, mobility, and physical well-being.",
+    fullDesc:
+      "General physiotherapy care focused on improving mobility, maintaining physical function, managing common physical concerns, and supporting overall well-being.",
+    deliveryModes: ["Home Visit", "Clinic Visit"],
+    keyBenefits: [
+      "General Physiotherapy Care",
+      "Mobility Improvement",
+      "Personalized Care Plan",
+    ],
+  },
+  {
+    id: "pain-management",
+    title: "Pain Management",
+    category: "Pain Management",
+    icon: Heart,
+    shortDesc:
+      "Specialized physiotherapy care for managing acute and chronic pain conditions.",
+    fullDesc:
+      "Targeted physiotherapy focused on reducing pain, improving movement, and helping patients return to their daily activities through personalized treatment approaches.",
+    deliveryModes: ["Home Visit", "Clinic Visit"],
+    keyBenefits: [
+      "Pain Relief",
+      "Movement Improvement",
+      "Personalized Treatment",
+    ],
+  },
+  {
+    id: "paralysis-care",
+    title: "Paralysis Care",
+    category: "Paralysis Care",
+    icon: Brain,
+    shortDesc:
+      "Specialized rehabilitation support for patients affected by paralysis.",
+    fullDesc:
+      "Comprehensive rehabilitation focused on improving mobility, strength, balance, coordination, and functional independence for patients living with paralysis.",
+    deliveryModes: ["Home Visit", "Clinic Visit"],
+    keyBenefits: [
+      "Mobility & Strength Training",
+      "Balance & Coordination",
+      "Functional Independence",
     ],
   },
 ];
@@ -155,8 +188,6 @@ const OTHER_SERVICES = [
       "Diagnosis, treatment, and management of common health conditions and illnesses.",
     fullDesc:
       "Comprehensive medical consultation for common health concerns, routine checkups, and general health management.",
-    duration: "20–30 mins",
-    startingPrice: "₹300",
     deliveryModes: ["Clinic Visit", "Online Consultation"],
     keyBenefits: [
       "General Health Checkup",
@@ -173,8 +204,6 @@ const OTHER_SERVICES = [
       "Specialized care for heart-related conditions and cardiovascular health.",
     fullDesc:
       "Cardiology consultation and evaluation for heart health, cardiovascular conditions, and related concerns.",
-    duration: "30–45 mins",
-    startingPrice: "₹700",
     deliveryModes: ["Clinic Visit", "Online Consultation"],
     keyBenefits: [
       "Heart Health Assessment",
@@ -190,8 +219,6 @@ const OTHER_SERVICES = [
     shortDesc: "Medical care for skin, hair, and nail conditions.",
     fullDesc:
       "Specialized dermatology consultation for common skin, hair, and nail concerns with personalized treatment guidance.",
-    duration: "20–30 mins",
-    startingPrice: "₹500",
     deliveryModes: ["Clinic Visit", "Online Consultation"],
     keyBenefits: [
       "Skin Consultation",
@@ -208,8 +235,6 @@ const OTHER_SERVICES = [
       "Healthcare services focused on the growth, development, and wellbeing of children.",
     fullDesc:
       "Child-focused medical consultation covering general health, development, and common pediatric concerns.",
-    duration: "20–30 mins",
-    startingPrice: "₹400",
     deliveryModes: ["Clinic Visit", "Online Consultation"],
     keyBenefits: [
       "Child Health Checkup",
@@ -226,8 +251,6 @@ const OTHER_SERVICES = [
       "Specialized healthcare services for women's reproductive and general health.",
     fullDesc:
       "Gynecology consultation for women's health concerns, routine care, and reproductive health management.",
-    duration: "30–45 mins",
-    startingPrice: "₹600",
     deliveryModes: ["Clinic Visit", "Online Consultation"],
     keyBenefits: [
       "Women's Health Consultation",
@@ -244,8 +267,6 @@ const OTHER_SERVICES = [
       "Diagnosis and treatment services for ear, nose, and throat conditions.",
     fullDesc:
       "Specialized ENT consultation for common ear, nose, throat, and related head and neck concerns.",
-    duration: "20–30 mins",
-    startingPrice: "₹500",
     deliveryModes: ["Clinic Visit", "Online Consultation"],
     keyBenefits: ["Ear Care", "Nose & Sinus Care", "Throat Consultation"],
   },
@@ -258,8 +279,6 @@ const OTHER_SERVICES = [
       "Professional dental care for oral health, teeth, and gum-related conditions.",
     fullDesc:
       "Dental consultation and treatment services focused on maintaining healthy teeth, gums, and overall oral health.",
-    duration: "30–45 mins",
-    startingPrice: "₹400",
     deliveryModes: ["Clinic Visit"],
     keyBenefits: [
       "Dental Checkup",
@@ -276,8 +295,6 @@ const OTHER_SERVICES = [
       "Specialized eye care including vision assessment and treatment of eye conditions.",
     fullDesc:
       "Eye care consultation for vision concerns, routine eye examinations, and common ophthalmic conditions.",
-    duration: "30–45 mins",
-    startingPrice: "₹500",
     deliveryModes: ["Clinic Visit"],
     keyBenefits: [
       "Vision Assessment",
@@ -350,16 +367,6 @@ const Service = () => {
                     <div className="w-12 h-12 rounded-2xl bg-teal-50 text-[#0a4f48] flex items-center justify-center group-hover:bg-[#0a4f48] group-hover:text-white transition-colors duration-300">
                       <Icon className="w-6 h-6" />
                     </div>
-
-                    <div className="text-right">
-                      <span className="text-[10px] uppercase font-bold text-gray-400 block">
-                        Starting from
-                      </span>
-
-                      <span className="text-lg font-extrabold text-[#0a4f48]">
-                        {service.startingPrice}
-                      </span>
-                    </div>
                   </div>
 
                   <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#0a4f48] transition-colors mb-2">
@@ -371,17 +378,6 @@ const Service = () => {
                   </p>
 
                   <div className="space-y-2 mb-4 pt-3 border-t border-slate-100">
-                    <div className="flex items-center gap-2 text-xs text-gray-500 font-medium">
-                      <Clock className="w-4 h-4 text-amber-500" />
-
-                      <span>
-                        Avg. Duration:{" "}
-                        <strong className="text-gray-800">
-                          {service.duration}
-                        </strong>
-                      </span>
-                    </div>
-
                     <div className="flex flex-wrap gap-1.5 pt-1">
                       {service.deliveryModes.map((mode) => (
                         <span
