@@ -6,7 +6,7 @@ const ForgetPassword = () => {
     e.preventDefault();
     const Email = refemail.current.value;
     const data = await fetch(
-      "http://localhost:8000/api/v1/user/forgetpassword",
+      "https://physio-backend-sand.vercel.app/api/v1/user/forgetpassword",
       {
         method: "POST",
         headers: {

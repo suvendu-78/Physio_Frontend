@@ -29,16 +29,7 @@ const Login = () => {
 
   //     Swal.fire({
   //       icon: "success",
-  //       title: "Login Successful!",
-  //       text: "Welcome to LiBi motion care.",
-  //       confirmButtonText: "Continue",
-  //       confirmButtonColor: "#4f46e5",
-  //     });
-  //     setTimeout(() => {
-  //       navigate("/patientDashboard");
-  //     }, [2000]);
-  //   }
-  // };
+  //
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -48,17 +39,21 @@ const Login = () => {
     };
 
     try {
-      const Response = await fetch("http://localhost:8000/api/v1/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const Response = await fetch(
+        "https://physio-backend-sand.vercel.app/api/v1/user/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          // Important for HttpOnly cookies
+          // credentials: true,
+          credentials: "include",
+
+          body: JSON.stringify(info),
         },
-
-        // Important for HttpOnly cookies
-        credentials: "include",
-
-        body: JSON.stringify(info),
-      });
+      );
 
       const result = await Response.json();
 

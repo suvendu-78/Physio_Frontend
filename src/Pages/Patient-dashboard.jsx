@@ -368,7 +368,7 @@ const PatientDashboard = () => {
   const Data = async () => {
     try {
       const Response = await fetch(
-        "http://localhost:8000/api/v1/user/getuser",
+        "https://physio-backend-sand.vercel.app/api/v1/user/getuser",
         {
           method: "GET",
           credentials: "include",
@@ -393,10 +393,13 @@ const PatientDashboard = () => {
 
   const handleLogout = async () => {
     try {
-      const Response = await fetch("http://localhost:8000/api/v1/user/logout", {
-        method: "POST",
-        credentials: "include",
-      });
+      const Response = await fetch(
+        "https://physio-backend-sand.vercel.app/api/v1/user/logout",
+        {
+          method: "POST",
+          credentials: "include",
+        },
+      );
 
       const data = await Response.json();
 

@@ -42,13 +42,16 @@ const Signup = () => {
       Address: addressRef.current.value,
     };
     setInfo(data);
-    const Response = await fetch("http://localhost:8000/api/v1/user/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const Response = await fetch(
+      "https://physio-backend-sand.vercel.app/api/v1/user/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       },
-      body: JSON.stringify(data),
-    });
+    );
     if (Response.ok) {
       firstNameRef.current.value = "";
       lastNameRef.current.value = "";
