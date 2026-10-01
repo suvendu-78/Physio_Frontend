@@ -294,7 +294,7 @@ const Clinics = () => {
             <div className="relative flex items-center border border-slate-200 rounded-xl px-3 py-2.5 bg-slate-50 focus-within:bg-white focus-within:border-[#0a4f48] transition-colors">
               <MapPin size={18} className="text-slate-400 mr-2 flex-shrink-0" />
 
-              <select
+              {/* <select
                 value={selectedDistrict}
                 onChange={handleDistrictChange}
                 className="w-full bg-transparent text-xs sm:text-sm font-medium focus:outline-none appearance-none text-slate-800 cursor-pointer pr-4"
@@ -304,7 +304,7 @@ const Clinics = () => {
                     {dist}
                   </option>
                 ))}
-              </select>
+              </select> */}
 
               <ChevronDown
                 size={14}

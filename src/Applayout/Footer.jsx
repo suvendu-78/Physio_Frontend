@@ -26,10 +26,7 @@ const Foot = () => {
             Odisha for home visits and clinic appointments.
           </p>
           <div className="pt-2 text-xs text-teal-200">
-            <p>
-              📍 Serving Bhubaneswar, Cuttack, Puri & major districts across
-              Odisha.
-            </p>
+            <p>📍 Head office rakhiba IB Road , Jagatpur katak</p>
           </div>
         </div>
 
@@ -116,7 +113,7 @@ const Foot = () => {
                 href="tel:+919876543210"
                 className="hover:text-amber-400 transition-colors"
               >
-                +91 98765 43210
+                +99777361935
               </a>
             </li>
             <li className="flex items-center gap-2">
@@ -125,7 +122,7 @@ const Foot = () => {
                 href="mailto:support@physionet.in"
                 className="hover:text-amber-400 transition-colors"
               >
-                support@physionet.in
+                libimotion@gmail.com
               </a>
             </li>
             <li>

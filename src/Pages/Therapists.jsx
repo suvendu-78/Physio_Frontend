@@ -54,18 +54,19 @@ const Therapists = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={() => scrollToSection(registrationRef)}
+              <a
+                href="https://libimotioncare-onboard.netlify.app"
                 className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-lg shadow-md transition flex items-center justify-center gap-2"
               >
                 Join as a Therapist <ArrowRight className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => scrollToSection(registrationRef)}
+              </a>
+
+              <a
+                href="https://libimotioncare-onboard.netlify.app"
                 className="px-6 py-3 border border-slate-400 hover:bg-white/10 text-white font-medium rounded-lg transition flex items-center justify-center gap-2"
               >
-                <Building2 className="w-4 h-4" /> Register Your Clinic
-              </button>
+                Already Registered? Login
+              </a>
             </div>
           </div>
 
@@ -363,18 +364,18 @@ const Therapists = () => {
             accepting appointments today.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <NavLink
-              to="/signup"
+            <a
+              href="https://libimotioncare-onboard.netlify.app"
               className="px-8 py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-lg transition shadow-md"
             >
               Get Started Now
-            </NavLink>
-            <NavLink
-              to="/login"
+            </a>
+            <a
+              href="https://libimotioncare-onboard.netlify.app"
               className="px-8 py-3 bg-teal-900 hover:bg-teal-950 text-white border border-teal-700 font-medium rounded-lg transition"
             >
               Already Registered? Login
-            </NavLink>
+            </a>
           </div>
         </div>
       </section>

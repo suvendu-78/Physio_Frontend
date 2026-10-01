@@ -1318,7 +1318,7 @@ const Homes = () => {
                 </a>
 
                 <a
-                  href="https://wa.me/7439058125"
+                  href="https://wa.me/9777361935"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold transition shadow-md"
@@ -1329,7 +1329,7 @@ const Homes = () => {
               </div>
 
               <p className="text-center text-xs text-slate-400 mt-4">
-                Call us at +91 7846967125 for more information
+                Call us at +91 9777361935 for more information
               </p>
             </div>
           </div>

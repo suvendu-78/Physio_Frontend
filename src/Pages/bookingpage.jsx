@@ -89,7 +89,7 @@ const BookingPage = () => {
               {/* Phone Number */}
               <div className="mt-5 flex items-center justify-center gap-2 text-[#004d40] font-semibold">
                 <Phone className="w-4 h-4" />
-                <span>+91 7846967125</span>
+                <span>+91 9777361935</span>
               </div>
 
               {/* Buttons */}
@@ -105,7 +105,7 @@ const BookingPage = () => {
 
                 {/* WhatsApp */}
                 <a
-                  href="https://wa.me/917846967125"
+                  href="https://wa.me/9777361935"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold transition shadow-md"
@@ -147,15 +147,15 @@ const BookingPage = () => {
 
           <div className="flex items-center gap-3">
             <a
-              href="tel:+917846967125"
+              href="tel:+919777361935"
               className="hidden sm:flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-[#004d40] transition-colors"
             >
               <Phone className="w-4 h-4 text-[#004d40]" />
-              <span>+91 7846967125</span>
+              <span>+91 9777361935</span>
             </a>
 
             <a
-              href="https://wa.me/917846967125"
+              href="https://wa.me/9777361935"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200 text-sm px-3 py-1.5 rounded-full font-medium transition-colors"
@@ -435,7 +435,7 @@ const BookingPage = () => {
               </p>
 
               <a
-                href="https://wa.me/7439058125"
+                href="https://wa.me/9777361935"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-center w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl text-sm transition-colors"
